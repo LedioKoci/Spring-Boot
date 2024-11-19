@@ -2,6 +2,8 @@ package com.example.demo.controller;
 import com.example.demo.model.User;
 import com.example.demo.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,14 +21,15 @@ public class Controller {
     }
 
     @GetMapping("/getUser/{id}")
-    public Optional<User> getUserById(@PathVariable("id") Integer id){
-        return service.getById(id);
+    public ResponseEntity<Optional<User>> getUserById(@PathVariable("id") Integer id){
+
+        return new ResponseEntity<Optional<User>>(service.getById(id), HttpStatus.OK);
     }
 
     @GetMapping("/getAllUsers")
-    public List<User> getAllUsers(){
+    public ResponseEntity<List<User>> getAllUsers(){
 
-        return service.getAllUsers();
+        return new ResponseEntity<List<User>>(service.getAllUsers(), HttpStatus.OK);
     }
 
     @PostMapping("/register")
