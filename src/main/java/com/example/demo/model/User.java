@@ -1,17 +1,19 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
 @Entity
-@Table(name = "user")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Table(name = "\"user\"")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
