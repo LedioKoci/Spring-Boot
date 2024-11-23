@@ -20,11 +20,11 @@ public class UserRepositoryTest {
         //given
         User user = new User(
                 34,
-                "gay",
-                "gay",
+                "Jackson",
+                "Michael",
                 45,
-                "gaygay@gmail.com",
-                "gay03"
+                "MichaelJackson@gmail.com",
+                "MJ1"
         );
         userRepository.save(user);
 
